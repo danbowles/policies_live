@@ -14,7 +14,14 @@ defmodule PoliciesLiveWeb.PolicyLive do
     {:noreply, socket}
   end
 
+  def handle_info({:update, opts}, socket) do
+    path = Routes.live_path(socket, __MODULE__, opts)
+    {:noreply, push_patch(socket, to: path, replace: true)}
+  end
+
   def assign_policies(socket) do
-    assign(socket, :policies, Policies.list_policies())
+    socket
+    |> assign(:policies, Policies.list_policies(%{}))
+    |> assign(:sorting, %{sort_by: :insured_first_name, sort_dir: :asc})
   end
 end

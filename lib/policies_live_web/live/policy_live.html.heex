@@ -1,12 +1,21 @@
 <table>
+  <thead>
+    <th>
+      <.live_component
+        module={PoliciesLiveWeb.PolicyLive.SortingComponent}
+        id="sorting-policy-number"
+        key={:policy_number}
+        sorting={@sorting}
+      />
+    </th>
+  </thead>
   <tbody>
     <%= for policy <- @policies do %>
       <tr>
         <td><%= policy.policy_number %></td>
         <td><%= policy.insured_first_name %></td>
         <td><%= policy.insured_last_name %></td>
-        <td><%= policy.inserted_at %></td>
-        <td><%= policy.updated_at %></td>
+        <td><%= policy.policy_start_date %></td>
       </tr>
     <% end %>
   </tbody>

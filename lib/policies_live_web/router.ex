@@ -18,6 +18,7 @@ defmodule PoliciesLiveWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    live "/policy", PolicyLive
   end
 
   # Other scopes may use custom stacks.

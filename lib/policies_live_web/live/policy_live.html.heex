@@ -1,0 +1,13 @@
+<table>
+  <tbody>
+    <%= for policy <- @policies do %>
+      <tr>
+        <td><%= policy.policy_number %></td>
+        <td><%= policy.insured_first_name %></td>
+        <td><%= policy.insured_last_name %></td>
+        <td><%= policy.inserted_at %></td>
+        <td><%= policy.updated_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

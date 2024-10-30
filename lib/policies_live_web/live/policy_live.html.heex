@@ -1,13 +1,34 @@
-<table>
+<table class="border-collapse table-fixed w-full">
   <thead>
-    <th>
-      <.live_component
-        module={PoliciesLiveWeb.PolicyLive.SortingComponent}
-        id="sorting-policy-number"
-        key={:policy_number}
-        sorting={@sorting}
-      />
-    </th>
+    <tr>
+      <th class="font-medium p-4 pt-0 pb-3 text-left">
+        <.live_component
+          module={PoliciesLiveWeb.PolicyLive.SortingComponent}
+          id="sorting-policy-number"
+          key={:policy_number}
+          key_value="Policy #"
+          sorting={@sorting}
+        />
+      </th>
+      <th class="font-medium p-4 pt-0 pb-3 text-left">
+        <.live_component
+          module={PoliciesLiveWeb.PolicyLive.SortingComponent}
+          id="sorting-first-name"
+          key={:insured_first_name}
+          key_value="First Name"
+          sorting={@sorting}
+        />
+      </th>
+      <th class="font-medium p-4 pt-0 pb-3 text-left">
+        <.live_component
+          module={PoliciesLiveWeb.PolicyLive.SortingComponent}
+          id="sorting-last-name"
+          key={:insured_last_name}
+          key_value="Last Name"
+          sorting={@sorting}
+        />
+      </th>
+    </tr>
   </thead>
   <tbody>
     <%= for policy <- @policies do %>

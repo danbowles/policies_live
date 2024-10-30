@@ -3,14 +3,15 @@ defmodule PoliciesLiveWeb.PolicyLive.SortingComponent do
 
   def render(assigns) do
     ~H"""
-    <div phx-click="sort" phx-target={@myself}>
-      <%= @key %><%= chevron(@sorting, @key) %>
-    </div>
+    <span phx-click="sort" phx-target={@myself}>
+      <%= @key_value %><%= chevron(@sorting, @key) %>
+    </span>
     """
   end
 
   def handle_event("sort", _params, socket) do
-    %{sorting: %{sort_dir: sort_dir, key: key}} = socket.assigns
+    IO.inspect(socket)
+    %{sorting: %{sort_dir: sort_dir}, key: key} = socket.assigns
     sort_dir = if sort_dir == :asc, do: :desc, else: :asc
 
     opts = %{sort_by: key, sort_dir: sort_dir}

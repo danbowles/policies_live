@@ -10,7 +10,6 @@ defmodule PoliciesLiveWeb.PolicyLive.SortingComponent do
   end
 
   def handle_event("sort", _params, socket) do
-    IO.inspect(socket)
     %{sorting: %{sort_dir: sort_dir}, key: key} = socket.assigns
     sort_dir = if sort_dir == :asc, do: :desc, else: :asc
 

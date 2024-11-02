@@ -32,7 +32,9 @@ defmodule PoliciesLive.Policies do
 
   defp paginate(query, %{page: page, page_size: page_size})
        when page > 0 and page_size > 0 do
-    query |> limit(^page_size) |> offset(^page_size * (^page - 1))
+    # Course correct in case we accidentally get a negative page
+    offset = max(0, page - 1) * page_size
+    query |> limit(^page_size) |> offset(^offset)
   end
 
   defp paginate(query, _opts), do: query

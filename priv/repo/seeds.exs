@@ -34,9 +34,8 @@ with {:ok, body} <- File.read(json_file_path),
       city: policy.city,
       state: policy.state,
       postal_code: policy.postal_code,
-      latitude: policy.latitude,
-      longitude: policy.longitude,
-      country: policy.country,
+      balance: policy.balance,
+      status: String.to_atom(policy.status),
       inserted_at: DateTime.utc_now() |> DateTime.truncate(:second),
       updated_at: DateTime.utc_now() |> DateTime.truncate(:second)
     })

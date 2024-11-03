@@ -17,9 +17,8 @@ defmodule PoliciesLive.Policies.Policy do
     field :city, :string
     field :state, :string
     field :postal_code, :string
-    field :latitude, :float
-    field :longitude, :float
-    field :country, :string
+    field :balance, :integer
+    field :status, Ecto.Enum, values: [:active, :suspended, :cancelled, :terminated]
     field :inserted_at, :utc_datetime
     field :updated_at, :utc_datetime
   end
@@ -40,9 +39,8 @@ defmodule PoliciesLive.Policies.Policy do
       :city,
       :state,
       :postal_code,
-      :latitude,
-      :longitude,
-      :country
+      :balance,
+      :status
     ]
 
     policy

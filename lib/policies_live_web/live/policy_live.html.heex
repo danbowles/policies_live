@@ -1,5 +1,5 @@
 <.live_component module={PoliciesLiveWeb.PolicyLive.FilterComponent} id="filter" filter={@filter} />
-<table class="border-collapse table-fixed w-full">
+<table class="border-collapse table-fixed w-full mb-5">
   <thead>
     <tr>
       <th class="font-medium p-4 pt-0 pb-3 text-left">
@@ -29,6 +29,8 @@
           sorting={@sorting}
         />
       </th>
+      <th><span>Balance</span></th>
+      <th><span>Status</span></th>
     </tr>
   </thead>
   <tbody>
@@ -37,8 +39,18 @@
         <td><%= policy.policy_number %></td>
         <td><%= policy.insured_first_name %></td>
         <td><%= policy.insured_last_name %></td>
-        <td><%= policy.policy_start_date %></td>
+        <td><%= policy.balance %></td>
+        <td>
+          <span class="py-1 px-2 rounded-full bg-red-500 text-white font-sans font-semibold text-xs uppercase">
+            <%= policy.status %>
+          </span>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<.live_component
+  module={PoliciesLiveWeb.PolicyLive.PaginationComponent}
+  id="pagination"
+  pagination={@pagination}
+/>

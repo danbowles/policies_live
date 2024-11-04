@@ -3,9 +3,16 @@ defmodule PoliciesLiveWeb.PolicyLive.SortingComponent do
 
   def render(assigns) do
     ~H"""
-    <span phx-click="sort" phx-target={@myself}>
+    <div phx-click="sort" phx-target={@myself}>
+      <span><%= @key_value %></span>
+      <span>
+        <%= chevron(@sorting, @key) %>
+      </span>
+    </div>
+
+    <%!-- <span phx-click="sort" phx-target={@myself}>
       <%= @key_value %><%= chevron(@sorting, @key) %>
-    </span>
+    </span> --%>
     """
   end
 

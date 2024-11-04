@@ -1,0 +1,32 @@
+<table class="border-collapse table-fixed w-full mb-5">
+  <thead>
+    <tr>
+      <th class="font-medium p-4 pt-0 pb-3 text-left">
+        <span>Policy #</span>
+      </th>
+      <th class="font-medium p-4 pt-0 pb-3 text-left">
+        <span>First Name</span>
+      </th>
+      <th class="font-medium p-4 pt-0 pb-3 text-left">
+        <span>Last Name</span>
+      </th>
+      <th class="font-medium p-4 pt-0 pb-3 text-left"><span>Balance</span></th>
+      <th class="font-medium p-4 pt-0 pb-3 text-left"><span>Status</span></th>
+    </tr>
+  </thead>
+  <tbody id="policies" phx-update="stream" phx-hook="InfinityScroll">
+    <%= for policy <- @policies do %>
+      <tr>
+        <td><%= policy.policy_number %></td>
+        <td><%= policy.insured_first_name %></td>
+        <td><%= policy.insured_last_name %></td>
+        <td><%= policy.balance %></td>
+        <td>
+          <span class="py-1 px-2 rounded-full bg-red-500 text-white font-sans font-semibold text-xs uppercase">
+            <%= policy.status %>
+          </span>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

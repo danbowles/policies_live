@@ -14,6 +14,15 @@ defmodule PoliciesLive.Policies do
     |> Repo.all()
   end
 
+  def policy_count(), do: Repo.aggregate(Policy, :count)
+
+  def list_policies_with_pagination(offset, limit) do
+    from(p in Policy)
+    |> limit(^limit)
+    |> offset(^offset)
+    |> Repo.all()
+  end
+
   def list_policies_with_count(opts) do
     q = from(p in Policy) |> filter(opts)
     count = Repo.aggregate(q, :count)

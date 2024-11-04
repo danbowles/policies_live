@@ -19,6 +19,7 @@ defmodule PoliciesLiveWeb.Router do
 
     get "/", PageController, :home
     live "/policy", PolicyLive
+    live "/policy_infinity", PolicyInfinityLive
   end
 
   # Other scopes may use custom stacks.
